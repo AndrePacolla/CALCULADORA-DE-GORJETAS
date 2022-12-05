@@ -1,0 +1,265 @@
+					Curso OneBitCode { }  FullStack 
+
+ 							/ CSS  /
+ATALHO TECLADO LETRA ( F ) tela cheia 
+
+
+
+		Variáveis 
+
+Em projetos grandes nós definimos paletas de cores na parte de planejamentos ,
+Primeiro passo iremos criar variaves para definir as cores ,geralmente cores que irá se repetir por varias vezes
+no corpo do código.
+Por algum motivo x ,ocorreu alguma alteração é só alterar a variavel da cor PRÉ-definida. 	
+
+ex : 
+--cor-pricinpal :black ;
+
+color: var(--cor-principal);
+
+		------------------------------------------------------------------------------------------------------
+
+
+			Manipulação de Pseudo Classes 
+
+Os efeitos em links são possíveis através de declarações de regras de estilo para as pseudo-classes do elemento <a> do HTML.
+As pseudo-classes são usadas em CSS, para adicionar efeitos diferentes a alguns Links. 
+EXEMPLOS :
+
+a:link........define o estilo do link no estado inicial;
+a:visited...define o estilo do link visitado;
+a:hover.....define o estilo do link quando passa-se o mouse sobre ele;
+a:active....define o estilo do link ativo (o que foi "clicado").
+
+
+
+------------------------------------------------------------------------------------------------------
+
+				 Propriedades (tradução)
+
+width = Largura ; 
+height = Altura ; 
+font - weight = Espessura da fonte ; 
+box-shadow = Sombra da caixa ;
+border-radius = raio da borda (arredondarmento da borda)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+				JSCRIPT
+
+ document.getElementById('tipsForm').addEventListener('submit',calcularTip)
+/* Peguei o id do form e add um evento de associação(listenner quer dizer OUVINTE) 
+cujo dentro do parenteses inclui o botao do tipo submeter
+e inclui a função calcular */
+
+document.getElementById('totalTip').style.display ="none";
+ /*Esse cara eu  tirei o display na tela */
+
+
+event.preventDefault();
+
+ /*O FORM é feito para mandar as coisas para o servidor .
+Esse evento event.preventDefault(); vai
+previnir o comportamento padrão , pois o evento 
+addEventListener puxando o ID DO FORM ('tipsForm') , recarrega a página no automático.
+Geralmente quando pegamos os formulários do html para o javascript as páginas nao sao recarregadas , 
+por isso esse eventpreventDefault
+é utilizado pra nao haver a necessidade de carregamento da página sem necessidade .
+
+				REQUIRED
+
+ No HTML serve para nao autorizar o submit ,sem ter preenchido o input antes 
+(O PRÓPRIO BROWSER ,informará uma mensagem)
+			"Preencha esse campo"
+
+ 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+ CÓDIGO { HTML     }
+
+
+!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+
+    <title>Calculando GORJETAS .</title>
+</head>
+<body>
+ 
+<div id="Container">
+
+    <div>
+        <h1 class="title">Calculadora de Gorjetas </h1>
+    </div>
+
+        <div>
+           <form class="tipsForm" id="tipsForm">
+                <label for="bill">
+                    <p>Quanto ficou a conta ?</p>
+                </label>
+                    <p> R$
+                    <input type="number" placeholder="100" name="bill" id="bill" class="formInput" required >
+                    </p>
+                <label for="serviceQual">
+                    <p>Como foi o seu serviço ?</p>
+                </label>
+                    <select name="serviceQual" id="serviceQual" class="formSelect" required >
+                        <option disable selected > -- Escolha uma opção</option>
+                        <option value="0.30">30% - Incrivel</option>
+                        <option value="0.20">20% - Bom</option>
+                        <option value="0.15">15% - Aceitável</option>
+                        <option value="0.10">10% - Ruim</option>
+                        <option value="0.05">05% - Péssimo</option> 
+
+                    </select>
+                <label for="people">
+                    <p> Quantas pessoas vão dividir a conta?</p> 
+                </label>
+                    <p>
+                     <input type ="number" placeholder="1" name="people" id = "people" class="formInput" required> pessoa(s)
+                    </p>
+                
+                 <button type="submit" class="formSubmit"> Calcular ! </button>
+            </form>
+
+              <div id="totalTip">
+                Gorjeta total :
+                R$<span id="tip">0.00</span>
+                <span id="each"> Cada </span>
+             </div>
+        </div>
+</div>
+              
+
+
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
+
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+ CÓDIGO { CSS     }
+
+
+@import url(https://fonts.gogleapis.com/css?family=Lato:300,400,700|PT++Mono);
+
+:root{
+    --primary-color: LightCoral;
+    --secondary-color:DimGrey;
+    --tertiary-color:Gainsboro;
+}
+
+body {
+ background-color:var(--primary-color);
+ font-size: 15px;
+ font-family: Lato , sans-serif; 
+}
+#Container {
+   height:600px;
+   width:400px;
+   margin:150px auto;
+   background-color: #f7f7f7;
+   box-shadow: 5px 5px  5px var(--tertiary-color);
+   border-radius: 20px;
+}   
+
+.title{
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+    padding:15px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 50px ;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    text-align: center;
+
+}
+.tipsForm{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.formInput{
+    background-color: rgb(255, 255, 255);
+    width: 40px;
+    padding: 5px 5px 8px 8px;
+}
+
+.formInput:focus {
+ border: 3px solid var(--primary-color);
+ outline: none;
+}
+
+.formSelect{
+    width: 180px;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.formSubmit{
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin: 60px auto;
+    background-color: var(--primary-color );
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    font-size: 17px;
+    color:white;
+
+}
+
+#totalTip {
+ font-size: 20px;
+ margin-top: 5px;
+ text-align: center;
+
+
+}
+
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+ CÓDIGO { JAVASCRIPT     }
+
+
+function calcularTip(event) {
+    event.preventDefault();
+  let bill = document.getElementById('bill').value;
+  let serviceQual= document.getElementById('serviceQual').value;
+  let numPeople = document.getElementById('people').value;
+
+  if(bill == '' | serviceQual == 0){
+    alert('Por favor preencha os valores')
+     return;
+  }
+
+  if(numPeople == "" | numPeople <= 1 ){
+    numPeople = 1;
+    document.getElementById("each").style.display = 'none'
+  }else{
+    document.getElementById("each").style.display = "block"
+  }
+
+  let total = (bill * serviceQual) / numPeople;
+  total = total.toFixed(2);
+  document.getElementById("tip").innerHTML = total;
+  document.getElementById("totalTip").style.display ="block";  
+}
+
+
+
+document.getElementById('totalTip').style.display ="none";
+document.getElementById('each').style.display ="none";
+
+document.getElementById('tipsForm').addEventListener('submit' , calcularTip);
+
